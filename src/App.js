@@ -1,7 +1,7 @@
 import './App.css';
 import {rowData} from './appData'
 import {useState} from "react";
-import {Button, Table} from "react-bootstrap";
+import Content from "./content";
 
 const App = () =>  {
     let date = new Date()
@@ -99,63 +99,20 @@ const App = () =>  {
     }
 
     return (
-        <div className='container'>
-
-            <h1>Announcement</h1>
-            <Table size='sm' variant='dark' stiped bordered hover>
-
-                <tr>
-                    <td><input onChange={filterItems} placeholder='search'/></td>
-                    <td>Search by title </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-
-                <tr >
-                    <th>Title</th>
-                    <th>Information</th>
-                    <th>Company</th>
-                    <th>Data</th>
-                    <th>More</th>
-                    <th>Action</th>
-                </tr>
-                <tr >
-                    <td><input data-input ='title'  type='text' placeholder='change  title'  value={userInput.title} onChange={ onChange}/></td>
-                    <td><input data-input ='info'  type='text'  placeholder='change  info'   value={userInput.info} onChange={ onChange}/></td>
-                    <td><input data-input ='company'  type='text' placeholder='change  company'  value={userInput.company}onChange={ onChange}/></td>
-                    <td></td>
-                    <td><input data-input ='more'  type='text' placeholder='change  company'  value={userInput.more}onChange={ onChange}/></td>
-                    {isInput? <td><Button size='sm' onClick={AddNew}>Add new Row</Button></td> :
-                        <td><Button size='sm' onClick={() => alert("Введите данные!!!")}>Add new Row</Button></td> }
-                </tr>
-                {visibleItem.map(((el,i) =>{
-                    return(
-                        <tr key={el.id}>
-
-                            <td>{el.title}</td>
-                            <td>{el.info}</td>
-                            <td>{el.company}</td>
-                            <td>{el.data}</td>
-                            <td>{moreInfo ===el.id  ?  el.more : null}</td>
-                            <td>
-                                <Button size='sm'  variant="primary" style={{marginLeft:"2px"}} onClick={() =>more(el.id)}>More</Button>
-                                {isEdit === el.id ? (
-                                        <Button size='sm'  variant="primary" onClick={() =>onSave(el.id)} >Save Edits</Button>) : (
-                                        <Button size='sm'  variant="primary" onClick={() =>onEdit(el.id)} >Edit</Button>)}
-                                        <Button size='sm' variant="danger"  onClick={() =>onDelete(el.id)}>Delete</Button>
-
-
-                            </td>
-
-                        </tr>
-                        )
-                }))}
-
-            </Table>
-        </div>
+        <Content
+            filterItems={filterItems}
+            isInput={isInput}
+            AddNew={AddNew}
+            visibleItem={visibleItem}
+            moreInfo={moreInfo}
+            userInput={userInput}
+            onSave={onSave}
+            onChange={onChange}
+            more={more}
+            onEdit={onEdit}
+            onDelete={onDelete}
+            isEdit={isEdit}
+        />
     )
 }
 export  default App
