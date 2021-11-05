@@ -28,11 +28,11 @@ const Content =({visibleItem,filterItems,isInput,AddNew,moreInfo,userInput,onSav
                     <th>Action</th>
                 </tr>
                 <tr >
-                    <td><input data-input ='title'  type='text' placeholder='change  title'  value={userInput.title} onChange={ onChange}/></td>
-                    <td><input data-input ='info'  type='text'  placeholder='change  info'   value={userInput.info} onChange={ onChange}/></td>
-                    <td><input data-input ='company'  type='text' placeholder='change  company'  value={userInput.company}onChange={ onChange}/></td>
+                    <td><input data-input ='title'  type='text' placeholder='write a title'  value={userInput.title} onChange={ onChange}/></td>
+                    <td><input data-input ='info'  type='text'  placeholder='write a info'   value={userInput.info} onChange={ onChange}/></td>
+                    <td><input data-input ='company'  type='text' placeholder='write a company'  value={userInput.company}onChange={ onChange}/></td>
                     <td></td>
-                    <td><input data-input ='more'  type='text' placeholder='change  company'  value={userInput.more}onChange={ onChange}/></td>
+                    <td><input data-input ='more'  type='text' placeholder='write  more info'  value={userInput.more}onChange={ onChange}/></td>
                     {isInput? <td><Button size='sm' onClick={AddNew}>Add new Row</Button></td> :
                         <td><Button size='sm' onClick={() => alert("Введите данные!!!")}>Add new Row</Button></td> }
                 </tr>

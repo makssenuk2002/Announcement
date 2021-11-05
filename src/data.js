@@ -7,12 +7,12 @@ const Data = ({visibleItem,moreInfo,onSave,more,onEdit,onDelete,isEdit}) =>{
                 return(
                     <tr key={el.id}>
 
-                        <td>{el.title}</td>
-                        <td>{el.info}</td>
-                        <td>{el.company}</td>
-                        <td>{el.data}</td>
-                        <td>{moreInfo ===el.id  ?  el.more : null}</td>
-                        <td>
+                        <th>{el.title}</th>
+                        <th>{el.info}</th>
+                        <th>{el.company}</th>
+                        <th>{el.data}</th>
+                        <th>{moreInfo ===el.id  ?  el.more : null}</th>
+                        <th>
                             <Button size='sm'  variant="primary" style={{marginLeft:"2px"}} onClick={() =>more(el.id)}>More</Button>
                             {isEdit === el.id ? (
                                 <Button size='sm'  variant="primary" onClick={() =>onSave(el.id)} >Save Edits</Button>) : (
@@ -20,7 +20,7 @@ const Data = ({visibleItem,moreInfo,onSave,more,onEdit,onDelete,isEdit}) =>{
                             <Button size='sm' variant="danger"  onClick={() =>onDelete(el.id)}>Delete</Button>
 
 
-                        </td>
+                        </th>
 
                     </tr>
                 )
